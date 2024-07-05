@@ -6,8 +6,6 @@ async function fetchJobDescription(jobUrl) {
     const response = await axios.get(jobUrl);
     const html = response.data;
     const $ = cheerio.load(html);
-
-    // Adjust selector based on LinkedIn's HTML structure
     const description = $('.show-more-less-html__markup').text().trim();
 
     return description;
